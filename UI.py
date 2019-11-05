@@ -1,17 +1,5 @@
 #!/usr/bin/env python3
 
-"""
-ZetCode Tkinter tutorial
-
-In this script, we use the grid
-manager to create a more complicated Windows
-layout.
-
-Author: Jan Bodnar
-Last modified: April 2019
-Website: www.zetcode.com
-"""
-
 from tkinter import Tk, Text, BOTH, W, N, E, S
 from tkinter.ttk import Frame, Button, Label, Style
 from tkcalendar import Calendar, DateEntry
