@@ -2,10 +2,10 @@
 
 from tkinter import Tk, Text, BOTH, W, N, E, S
 from tkinter.ttk import Frame, Button, Label, Style
-from tkcalendar import Calendar, DateEntry
+# from tkcalendar import Calendar, DateEntry
 
 
-class Example(Frame):
+class UI(Frame):
 
     def __init__(self):
         super().__init__()
@@ -44,15 +44,3 @@ class Example(Frame):
 
         obtn = Button(self, text="Save Playlist")
         obtn.grid(row=5, column=3)
-
-
-def main():
-
-    root = Tk()
-    root.geometry("800x800+800+800")
-    app = Example()
-    root.mainloop()
-
-
-if __name__ == '__main__':
-    main()
