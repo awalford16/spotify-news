@@ -2,7 +2,7 @@ import requests
 import json
 import os
 from newsapi import NewsApiClient
-from datetime import datetime
+import datetime
 
 class News:
     def __init__(self):
@@ -13,10 +13,12 @@ class News:
 
     # Get latest news for the day
     def getNews(self, date):
+        last_week = date - datetime.timedelta(days=7)
+
         self.articles = self.news_api.get_everything(q='test',
                                                     language='en',
                                                     sort_by='popularity',
-                                                    from_param=str(date),
+                                                    from_param=str(last_week),
                                                     to=str(date))['articles']
                             
         return self.articles
