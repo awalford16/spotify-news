@@ -30,14 +30,15 @@ class UI(Frame):
         lb2 = Label(self, text="Playlist")
         lb2.grid(row=0, column=2,pady=4, padx=5)
 
-        listBox = Listbox(self)
-        listBox.grid(row=1, column=0, columnspan=2, rowspan=1, padx=5, sticky=E+W+S+N)
-        self.news_list = listBox
+        news_list_box = Listbox(self)
+        news_list_box.grid(row=1, column=0, columnspan=2, rowspan=1, padx=5, sticky=E+W+S+N)
+        self.news_list = news_list_box
 
-        area2 = Text(self)
-        area2.grid(row=1, column=2, columnspan=2, rowspan=1,padx=5, sticky=E+W+S+N)
+        playlist_list_box = Listbox(self)
+        playlist_list_box.grid(row=1, column=2, columnspan=2, rowspan=1,padx=5, sticky=E+W+S+N)
+        self.playlist_list = playlist_list_box
 
-        quit_btn = Button(self, text="Quit")
+        quit_btn = Button(self, text="Quit", command=quit)
         quit_btn.grid(row=5, column=0, padx=5)
 
         save_btn = Button(self, text="Save Playlist")
@@ -48,3 +49,8 @@ class UI(Frame):
     def render_news(self, news):
         for article in news:
             self.news_list.insert(END, article['title'])
+
+    # Display the playlist within the UI
+    def render_playlist(self, playlist):
+        for song in playlist:
+            self.playlist_list.insert(END, song)
