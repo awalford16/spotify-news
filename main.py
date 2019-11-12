@@ -11,7 +11,10 @@ def main():
     # Load in UI
     root = Tk()
     root.geometry("800x800+800+800")
+
+    # Congifure user interface
     app = UI()
+    app.render_news(news_data)
     root.mainloop()
 
 if __name__ == '__main__':

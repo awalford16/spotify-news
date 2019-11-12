@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from tkinter import Tk, Text, BOTH, W, N, E, S
+from tkinter import *
 from tkinter.ttk import Frame, Button, Label, Style
 # from tkcalendar import Calendar, DateEntry
 
@@ -30,17 +30,21 @@ class UI(Frame):
         lb2 = Label(self, text="Playlist")
         lb2.grid(row=0, column=2,pady=4, padx=5)
 
-
-        area = Text(self)
-        area.grid(row=1, column=0, columnspan=2, rowspan=1,padx=5, sticky=E+W+S+N)
+        listBox = Listbox(self)
+        listBox.grid(row=1, column=0, columnspan=2, rowspan=1, padx=5, sticky=E+W+S+N)
+        self.news_list = listBox
 
         area2 = Text(self)
         area2.grid(row=1, column=2, columnspan=2, rowspan=1,padx=5, sticky=E+W+S+N)
 
+        quit_btn = Button(self, text="Quit")
+        quit_btn.grid(row=5, column=0, padx=5)
 
-        
-        hbtn = Button(self, text="Quit")
-        hbtn.grid(row=5, column=0, padx=5)
+        save_btn = Button(self, text="Save Playlist")
+        save_btn.grid(row=5, column=3)
 
-        obtn = Button(self, text="Save Playlist")
-        obtn.grid(row=5, column=3)
+
+    # Display news data within column
+    def render_news(self, news):
+        for article in news:
+            self.news_list.insert(END, article['title'])
