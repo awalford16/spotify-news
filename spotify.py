@@ -18,10 +18,12 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 def addWords(words = []):
 	i = 0
+	songs = []
 	while(i < len(words)):
 		for w in words:
 			result = sp.search(w)	
-			pprint.pprint(result['tracks']['items'][i]['name'])
+			song = result['tracks']['items'][i]['name']
+			songs.append(song)
 		i += 1
 
-	return list(result)
+	return songs
