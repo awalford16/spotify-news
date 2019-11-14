@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from tkinter import *
+from tkinter import BOTH, E, W, S, N, Listbox
 from tkinter.ttk import Frame, Button, Label, Style
 # from tkcalendar import Calendar, DateEntry
 

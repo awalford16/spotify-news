@@ -2,6 +2,7 @@ import news
 from datetime import datetime
 from UI import UI
 from tkinter import Tk, Text, BOTH, W, N, E, S
+import spotify
 
 def main():
     # Get API keys
@@ -9,7 +10,7 @@ def main():
     news_data = news_api.getNews(datetime.today())
 
     # Get spotify playlist
-    # playlist = exec('spotify.py jpearson95 eminem george')
+    playlist = spotify.addWords(["test", "song"])
 
     # Load in UI
     root = Tk()
@@ -18,7 +19,7 @@ def main():
     # Congifure user interface
     app = UI()
     app.render_news(news_data)
-    app.render_playlist(['playlist'])
+    app.render_playlist(playlist)
     root.mainloop()
 
 if __name__ == '__main__':
