@@ -17,13 +17,12 @@ client_credentials_manager = SpotifyClientCredentials()
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 def addWords(words = []):
-	i = 0
 	songs = []
-	while(i < len(words)):
-		for w in words:
-			result = sp.search(w)	
-			song = result['tracks']['items'][i]['name']
+
+	for i in range(len(words)):
+		result = sp.search(words[i])	
+		if len(result) > 0:
+			song = result['tracks']['items'][0]['name']
 			songs.append(song)
-		i += 1
 
 	return songs

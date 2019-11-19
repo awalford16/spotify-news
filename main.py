@@ -8,9 +8,11 @@ def main():
     # Get API keys
     news_api = news.News()
     news_data = news_api.getNews(datetime.today())
+    news_words = news_api.get_words()
+    print(news_words)
 
     # Get spotify playlist
-    playlist = spotify.addWords(["test", "song"])
+    playlist = spotify.addWords(news_words)
 
     # Load in UI
     root = Tk()
