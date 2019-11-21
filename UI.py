@@ -38,13 +38,27 @@ class UI(Frame):
         playlist_list_box.grid(row=1, column=2, columnspan=2, rowspan=1,padx=5, sticky=E+W+S+N)
         self.playlist_list = playlist_list_box
 
+        lbl3 = Label(self, text="Enter Week (Format: 01/01/2019)")
+        lbl3.grid(row=3,column=0, pady=4, padx=5)
+
+        e1 = Entry(self)
+        e1.grid(row=3,column=1, pady=4, padx=5)
+
+        date_btn = Button(self, text="Update News", command= lambda: self.store_date(e1))
+        date_btn.grid(row=3, column=2, padx=5)
+
+    
         quit_btn = Button(self, text="Quit", command=quit)
         quit_btn.grid(row=5, column=0, padx=5)
 
         save_btn = Button(self, text="Save Playlist")
         save_btn.grid(row=5, column=3)
 
-
+    def store_date(self,e1):
+        user_entry = e1.get()
+        print(user_entry)
+        
+        
     # Display news data within column
     def render_news(self, news):
         for article in news:
